@@ -51,8 +51,8 @@ export default async function Home({
   // example: load the users credentials & check they have an NFT
   console.log("info: state is:", state);
 
+  // @ts-ignore
   const item = await getItemByID(params.id);
-  console.log(item);
 
   // then, when done, return next frame
   return (
@@ -71,14 +71,13 @@ export default async function Home({
               flexDirection: "column",
             }}
           >
-            <p>Item ID: {params.id}</p>
             <img
-              src={item[0].image_url}
+              src={item && item[0].image_url}
               alt="Item"
               style={{
                 width: "50%"
               }} />
-            <p>{item[0].detail}</p>
+            <p>{item && item[0].detail}</p>
           </div>
         </FrameImage>
         {!state.saidGm ? <FrameButton>Test</FrameButton> : null}
