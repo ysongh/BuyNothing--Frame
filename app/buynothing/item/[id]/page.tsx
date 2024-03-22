@@ -11,6 +11,7 @@ import {
 import Link from "next/link";
 import { currentURL } from "../../../utils";
 import { DEFAULT_DEBUGGER_HUB_URL, createDebugUrl } from "../../../debug";
+import { getItemByID } from "../../../../utils/supabase";
 
 type State = {
   saidGm: boolean;
@@ -50,6 +51,9 @@ export default async function Home({
   // example: load the users credentials & check they have an NFT
   console.log("info: state is:", state);
 
+  const item = await getItemByID(params.id);
+  console.log(item);
+
   // then, when done, return next frame
   return (
     <div>
@@ -67,7 +71,14 @@ export default async function Home({
               flexDirection: "column",
             }}
           >
-            Item ID: {params.id}
+            <p>Item ID: {params.id}</p>
+            <img
+              src={item[0].image_url}
+              alt="Item"
+              style={{
+                width: "50%"
+              }} />
+            <p>{item[0].detail}</p>
           </div>
         </FrameImage>
         {!state.saidGm ? <FrameButton>Test</FrameButton> : null}
