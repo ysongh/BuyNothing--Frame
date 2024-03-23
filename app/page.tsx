@@ -65,7 +65,7 @@ export default async function Home({ searchParams }: NextServerPageProps) {
         other examples
       </Link>
       <FrameContainer
-        postUrl="/frames"
+        postUrl="/buynothing/items"
         pathname="/"
         state={state}
         previousFrame={previousFrame}
@@ -78,8 +78,8 @@ export default async function Home({ searchParams }: NextServerPageProps) {
             </div>
           </div>
         </FrameImage>
-        <FrameButton action="link" target={process.env.NEXT_PUBLIC_WEBURL + "/buynothing/item/1"}>
-          See Items
+        <FrameButton>
+          View Items
         </FrameButton>
         <FrameButton action="link" target={process.env.NEXT_PUBLIC_WEBURL + "/buynothing/create"}>
           Post Item
