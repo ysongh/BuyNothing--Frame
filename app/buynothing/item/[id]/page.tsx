@@ -30,7 +30,8 @@ export default async function Home({
   params,
   searchParams,
 }: NextServerPageProps) {
-  const url = currentURL("/examples/user-data");
+  // @ts-ignore
+  const url = currentURL("/buynothing/item/" + params.id);
   const previousFrame = getPreviousFrame<State>(searchParams);
 
   const frameMessage = await getFrameMessage(previousFrame.postBody, {
@@ -57,7 +58,7 @@ export default async function Home({
   // then, when done, return next frame
   return (
     <div>
-      GM user data example. <Link href={createDebugUrl(url)}>Debug</Link>
+      Item: {item && item[0].title} <Link href={createDebugUrl(url)}>Debug</Link>
       <FrameContainer
         pathname="/buynothing/item/[id]"
         postUrl="/buynothing/item/[id]/frames"
