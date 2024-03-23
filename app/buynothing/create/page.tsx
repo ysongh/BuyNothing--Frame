@@ -12,7 +12,7 @@ const ItemForm = () => {
   const [id, setId] = useState(null);
 
   const createItem = async () => {
-    const newItem = await addItem(title, detail, url);
+    const newItem = await addItem(title, detail, url, location);
     // @ts-ignore
     setId(newItem[0].id || null);
   }
@@ -43,7 +43,7 @@ const ItemForm = () => {
           ></textarea>
         </div>
         <div className="mb-4">
-          <label htmlFor="url" className="block text-gray-700 font-bold mb-2">Title</label>
+          <label htmlFor="url" className="block text-gray-700 font-bold mb-2">Image URL</label>
           <input
             type="text"
             id="url"
