@@ -69,17 +69,26 @@ export default async function Home({
           <div
             style={{
               display: "flex",
-              flexDirection: "column",
+              flexDirection: "row",
             }}
           >
-             <p>{item && item[0].title}</p>
             <img
               src={item && item[0].image_url}
               alt="Item"
               style={{
                 width: "50%"
-              }} />
-            <p>{item && item[0].detail}</p>
+              }}
+            />
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+              }}
+            >
+              <p>{item && item[0].title}</p> 
+              <p>{item && item[0].detail}</p>
+              <p>{item && item[0].location}</p>
+            </div>
           </div>
         </FrameImage>
         {!state.saidGm ? <FrameButton>Test</FrameButton> : null}

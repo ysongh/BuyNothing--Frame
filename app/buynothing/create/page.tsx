@@ -8,6 +8,7 @@ const ItemForm = () => {
   const [title, setTitle] = useState("");
   const [detail, setDetail] = useState("");
   const [url, setUrl] = useState("");
+  const [location, setLocation] = useState("");
   const [id, setId] = useState(null);
 
   const createItem = async () => {
@@ -50,6 +51,17 @@ const ItemForm = () => {
             className="border border-gray-300 rounded-md px-4 py-2 w-full focus:outline-none focus:border-blue-500"
             placeholder="Enter Image URL"
             onChange={(e)=> setUrl(e.target.value)}
+          />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="location" className="block text-gray-700 font-bold mb-2">Location</label>
+          <input
+            type="text"
+            id="location"
+            name="location"
+            className="border border-gray-300 rounded-md px-4 py-2 w-full focus:outline-none focus:border-blue-500"
+            placeholder="Enter Location"
+            onChange={(e)=> setLocation(e.target.value)}
           />
         </div>
         <div className="flex flex-col justify-center">
