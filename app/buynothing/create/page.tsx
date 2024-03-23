@@ -8,9 +8,12 @@ const ItemForm = () => {
   const [title, setTitle] = useState("");
   const [detail, setDetail] = useState("");
   const [url, setUrl] = useState("");
+  const [id, setId] = useState(null);
 
   const createItem = async () => {
-    await addItem(title, detail, url);
+    const newItem = await addItem(title, detail, url);
+    // @ts-ignore
+    setId(newItem[0].id || null);
   }
 
   return (
@@ -49,14 +52,25 @@ const ItemForm = () => {
             onChange={(e)=> setUrl(e.target.value)}
           />
         </div>
-        <div className="flex justify-end">
-          <button
-            className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        <div className="flex flex-col justify-center">
+          {!id ? <button
+            className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 mb-2 rounded focus:outline-none focus:shadow-outline"
             onClick={createItem}
           >
             Submit
           </button>
+          : <p className='text-center mb-3'>Item Created!</p>
+          }
+          {id && <a
+            className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline text-center"
+            target="_blank"
+            href={`https://warpcast.com/~/compose?text=https://buynothing-frame.onrender.com/buynothing/item/${id}`}
+            rel="noopener noreferrer"
+          >
+            Share and Post to Warpcast
+          </a>}
         </div>
+        
       </div>
     </div>
   );

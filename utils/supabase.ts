@@ -31,4 +31,5 @@ export const addItem = async (title: string, detail:string, image_url: string) =
     ])
     .select()
   console.log(data, error);
+  return data;
 }
