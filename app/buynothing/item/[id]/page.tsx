@@ -91,7 +91,9 @@ export default async function Home({
             </div>
           </div>
         </FrameImage>
-        {!state.saidGm ? <FrameButton>Test</FrameButton> : null}
+        <FrameButton action="link" target={`https://www.google.com/maps/search/?api=1&query=${item && item[0].location}`}>
+          See location on Google Map
+        </FrameButton>
       </FrameContainer>
     </div>
   );
