@@ -4,6 +4,15 @@ const supabaseUrl = 'https://ycplmckespubztyaxzyr.supabase.co';
 const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_KEY;
 export const supabase = createClient(supabaseUrl, supabaseKey as string);
 
+export const getAllItem = async () => {
+  let { data: Items, error } = await supabase
+    .from('item')
+    .select("*")
+    console.log(Items, error);
+  if (error) return [];
+  return Items;
+}
+
 export const getItemByID = async (id: string) => {
   let { data: Items, error } = await supabase
     .from('item')
