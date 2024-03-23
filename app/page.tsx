@@ -109,8 +109,8 @@ export default async function Home({ searchParams }: NextServerPageProps) {
         <FrameButton>
           {state?.active === "2" ? "Active" : "Inactive"}
         </FrameButton>
-        <FrameButton action="link" target={`https://www.google.com`}>
-          External
+        <FrameButton action="link" target={process.env.NEXT_PUBLIC_WEBURL + "/buynothing/create"}>
+          Post Item
         </FrameButton>
       </FrameContainer>
     </div>

@@ -71,6 +71,7 @@ export default async function Home({
               flexDirection: "column",
             }}
           >
+             <p>{item && item[0].title}</p>
             <img
               src={item && item[0].image_url}
               alt="Item"

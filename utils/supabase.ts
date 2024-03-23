@@ -13,3 +13,13 @@ export const getItemByID = async (id: string) => {
   if (error) return [];
   return Items;
 }
+
+export const addItem = async (title: string, detail:string, image_url: string) => {
+  const { data, error } = await supabase
+    .from('item')
+    .insert([
+      { title, detail, image_url }
+    ])
+    .select()
+  console.log(data, error);
+}
