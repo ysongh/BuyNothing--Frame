@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+
+import PrivyProvider from "../utils/PrivyProvider";
+import Navbar from "../utils/Navbar";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -14,7 +17,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <PrivyProvider>
+          <Navbar />
+          {children}
+        </PrivyProvider>
+      </body>
     </html>
   );
 }
