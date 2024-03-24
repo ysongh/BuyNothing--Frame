@@ -55,7 +55,7 @@ export default async function Home({ searchParams }: NextServerPageProps) {
   // then, when done, return next frame
   return (
     <div className="p-4">
-      frames.js starter kit. The Template Frame is on this page, it&apos;s in
+      {/* frames.js starter kit. The Template Frame is on this page, it&apos;s in
       the html meta tags (inspect source).{" "}
       <Link href={createDebugUrl(url)} className="underline">
         Debug
@@ -63,7 +63,27 @@ export default async function Home({ searchParams }: NextServerPageProps) {
       or see{" "}
       <Link href="/examples" className="underline">
         other examples
-      </Link>
+      </Link> */}
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="max-w-4xl mx-auto p-8">
+          <h1 className="text-4xl font-bold mb-8">Buy Nothing Frame</h1>
+          <p>
+            A platform designed to facilitate community connections through gifting and sharing on Warpcast
+          </p>
+          <div className="flex space-x-4 mt-4">
+            <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+              View Items
+            </button>
+            <Link
+              className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              href="/buynothing/create"
+            >
+              Create Post
+            </Link>
+          </div>
+        </div>
+      </div>
+
       <FrameContainer
         postUrl="/buynothing/items"
         pathname="/"
@@ -72,10 +92,13 @@ export default async function Home({ searchParams }: NextServerPageProps) {
       >
         {/* <FrameImage src="https://framesjs.org/og.png" /> */}
         <FrameImage aspectRatio="1.91:1">
-          <div tw="w-full h-full bg-slate-700 text-white justify-center items-center flex flex-col">
-            <div tw="flex flex-row">
-              Welcome to Buy Nothing Frame
-            </div>
+          <div tw="w-full h-full bg-green-600 text-white justify-center items-center flex flex-col">
+            <h1 tw="text-5xl">
+              Welcome to 
+            </h1>
+            <h1 tw="text-7xl">
+              Buy Nothing Frame
+            </h1>
           </div>
         </FrameImage>
         <FrameButton>

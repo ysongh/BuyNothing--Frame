@@ -26,9 +26,6 @@ const handleRequest = frames(async (ctx) => {
         <img width={300} height={200} src={items && items[pageIndex].image_url} alt="Image" />
         <p>{items && items[pageIndex].detail}</p>
         <p>{items && items[pageIndex].location}</p>
-        <div tw="flex">
-          View {pageIndex + 1} / {totalPages}
-        </div>
       </div>
     ),
     buttons: [
