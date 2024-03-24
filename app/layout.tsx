@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import PrivyProvider from "../utils/PrivyProvider";
-import Navbar from "../utils/Navbar";
+import Navbar from "../components/Navbar";
 import "./globals.css";
 
 export const metadata: Metadata = {
