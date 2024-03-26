@@ -1,10 +1,13 @@
 "use client"
 
 import { useState } from 'react';
+import { usePrivy } from '@privy-io/react-auth';
 
 import { addItem } from '../../../utils/supabase';
 
 const ItemForm = () => {
+  const { user} = usePrivy();
+
   const [title, setTitle] = useState("");
   const [detail, setDetail] = useState("");
   const [url, setUrl] = useState("");
@@ -12,7 +15,7 @@ const ItemForm = () => {
   const [id, setId] = useState(null);
 
   const createItem = async () => {
-    const newItem = await addItem(title, detail, url, location);
+    const newItem = await addItem(title, detail, url, location, user?.id || "");
     // @ts-ignore
     setId(newItem[0].id || null);
   }

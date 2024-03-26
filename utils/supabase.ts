@@ -23,11 +23,11 @@ export const getItemByID = async (id: string) => {
   return Items;
 }
 
-export const addItem = async (title: string, detail:string, image_url: string, location: string) => {
+export const addItem = async (title: string, detail:string, image_url: string, location: string, user_id: string) => {
   const { data, error } = await supabase
     .from('item')
     .insert([
-      { title, detail, image_url, location }
+      { title, detail, image_url, location, user_id }
     ])
     .select()
   console.log(data, error);
