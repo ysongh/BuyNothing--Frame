@@ -14,14 +14,14 @@ import { DEFAULT_DEBUGGER_HUB_URL, createDebugUrl } from "../../../debug";
 import { getItemByID } from "../../../../utils/supabase";
 
 type State = {
-  saidGm: boolean;
+  
 };
 
-const initialState: State = { saidGm: false };
+const initialState: State = {  };
 
 const reducer: FrameReducer<State> = (state, action) => {
   return {
-    saidGm: true,
+    
   };
 };
 
