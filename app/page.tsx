@@ -71,9 +71,12 @@ export default async function Home({ searchParams }: NextServerPageProps) {
             A platform designed to facilitate community connections through gifting and sharing on Warpcast
           </p>
           <div className="flex space-x-4 mt-4">
-            <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+            <Link
+              className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              href="/buynothing/items"
+            >
               View Items
-            </button>
+            </Link>
             <Link
               className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
               href="/buynothing/create"
