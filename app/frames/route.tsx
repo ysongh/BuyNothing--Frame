@@ -15,8 +15,7 @@ const handleRequest = frames(async (ctx) => {
       </div>
     ),
     buttons: [
-      
-      <Button action="post" target="/buynothing/items/frames">
+      <Button action="post" target={`${process.env.NEXT_PUBLIC_WEBURL}/buynothing/items/frames`}>
         View Items
       </Button>,
     ],
