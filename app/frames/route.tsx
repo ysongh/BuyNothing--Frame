@@ -9,7 +9,7 @@ const handleRequest = frames(async (ctx) => {
     
   return {
     image: (
-      <div tw="flex flex-col">
+      <div tw="w-full h-full bg-green-600 text-white justify-center items-center flex flex-col">
         <h1>Welocome to</h1>
         <p>Buy Nothing Frame</p>
       </div>
