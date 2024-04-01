@@ -18,6 +18,9 @@ const handleRequest = frames(async (ctx) => {
       <Button action="post" target={`${process.env.NEXT_PUBLIC_WEBURL}/buynothing/items/frames`}>
         View Items
       </Button>,
+      <Button action="post" target={`${process.env.NEXT_PUBLIC_WEBURL}/buynothing/searchbylocation`}>
+       Search
+      </Button>,
       <Button action="link" target={process.env.NEXT_PUBLIC_WEBURL + "/buynothing/create"}>
         Post Item
       </Button>,
