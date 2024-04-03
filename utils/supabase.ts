@@ -33,3 +33,13 @@ export const addItem = async (title: string, detail:string, image_url: string, l
   console.log(data, error);
   return data;
 }
+
+export const getItemsByLocation = async (location: string) => {
+  let { data: Items, error } = await supabase
+    .from('item')
+    .select('*')
+    .ilike('location', location);
+  console.log(Items, "ddddd");
+  console.log(error);
+  return Items;
+}

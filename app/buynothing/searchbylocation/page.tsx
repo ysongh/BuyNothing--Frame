@@ -12,6 +12,7 @@ import {
 import Link from "next/link";
 import { currentURL } from "../../utils";
 import { DEFAULT_DEBUGGER_HUB_URL, createDebugUrl } from "../../debug"
+import { getItemsByLocation } from "../../../utils/supabase";
 
 type State = {
   
@@ -52,6 +53,8 @@ export default async function Home({
   // example: load the users credentials & check they have an NFT
   console.log("info: state is:", state);
 
+  const items = await getItemsByLocation(frameMessage?.inputText || "");
+  console.log("info: state is:", items);
   // then, when done, return next frame
   return (
     <div>
@@ -76,6 +79,10 @@ export default async function Home({
               }}
             >
               <p>Search by location</p>
+              {frameMessage?.inputText ? frameMessage.inputText : ""}
+              <p>{items && items[0].title}</p> 
+              <p>{items && items[0].detail}</p>
+              <p>{items && items[0].location}</p>
             </div>
           </div>
         </FrameImage>
