@@ -41,5 +41,5 @@ export const getItemsByLocation = async (location: string) => {
     .ilike('location', location);
   console.log(Items, "ddddd");
   console.log(error);
-  return Items;
+  return Items || [];
 }
