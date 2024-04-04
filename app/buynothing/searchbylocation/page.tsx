@@ -90,6 +90,9 @@ export default async function Home({
         <FrameButton action="post">
           Find
         </FrameButton>
+        <FrameButton action="post" target={`${process.env.NEXT_PUBLIC_WEBURL}/frames`}>
+          Back
+        </FrameButton>
       </FrameContainer>
     </div>
   );
