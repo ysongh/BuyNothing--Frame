@@ -80,9 +80,29 @@ export default async function Home({
             >
               <p>Search by location</p>
               {frameMessage?.inputText ? frameMessage.inputText : ""}
-              <p>{items && items[0]?.title}</p> 
-              <p>{items && items[0]?.detail}</p>
-              <p>{items && items[0]?.location}</p>
+              <div
+                style={{
+                  display: "flex",
+                }}
+              >
+                {items && items[0]?.image_url && <img
+                  src={items && items[0]?.image_url}
+                  alt="Item"
+                  style={{
+                    width: "40%"
+                  }}
+                />}
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                  }}
+                >
+                  <p>{items && items[0]?.title}</p> 
+                  <p>{items && items[0]?.detail}</p>
+                </div>
+                
+              </div>
             </div>
           </div>
         </FrameImage>
