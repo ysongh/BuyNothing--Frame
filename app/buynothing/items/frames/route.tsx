@@ -33,9 +33,6 @@ const handleRequest = frames(async (ctx) => {
       >
         ←
       </Button>,
-      <Button action="post" target={`${process.env.NEXT_PUBLIC_WEBURL}`}>
-        Home
-      </Button>,
       <Button
         action="post"
         target={{
@@ -43,6 +40,12 @@ const handleRequest = frames(async (ctx) => {
         }}
       >
         →
+      </Button>,
+      <Button action="post" target={`${process.env.NEXT_PUBLIC_WEBURL}`}>
+        Home
+      </Button>,
+      <Button action="post" target={`${process.env.NEXT_PUBLIC_WEBURL}/buynothing/item/${items && items[pageIndex].id}`}>
+        View
       </Button>,
     ],
   };
