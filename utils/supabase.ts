@@ -39,7 +39,16 @@ export const getItemsByLocation = async (location: string) => {
     .from('item')
     .select('*')
     .ilike('location', location);
-  console.log(Items, "ddddd");
+  console.log(Items);
   console.log(error);
   return Items || [];
+}
+
+export const deleteItemByID = async (id: string) => {
+  let { error } = await supabase
+    .from('item')
+    .delete()
+    .eq('id', id);
+  if (error) return error;
+  return null;
 }
