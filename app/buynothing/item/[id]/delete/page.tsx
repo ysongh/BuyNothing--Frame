@@ -9,9 +9,9 @@ import {
   useFramesReducer,
 } from "frames.js/next/server";
 import Link from "next/link";
-import { currentURL } from "../../../utils";
-import { DEFAULT_DEBUGGER_HUB_URL, createDebugUrl } from "../../../debug";
-import { getItemByID } from "../../../../utils/supabase";
+import { currentURL } from "../../../../utils";
+import { DEFAULT_DEBUGGER_HUB_URL, createDebugUrl } from "../../../../debug";
+import { getItemByID } from "../../../../../utils/supabase";
 
 type State = {
   
@@ -31,7 +31,7 @@ export default async function Home({
   searchParams,
 }: NextServerPageProps) {
   // @ts-ignore
-  const url = currentURL("/buynothing/item/" + params.id);
+  const url = currentURL("/buynothing/item/[id]/delete");
   const previousFrame = getPreviousFrame<State>(searchParams);
 
   const frameMessage = await getFrameMessage(previousFrame.postBody, {
@@ -58,10 +58,10 @@ export default async function Home({
   // then, when done, return next frame
   return (
     <div>
-      Item: {item && item[0]?.title} <Link href={createDebugUrl(url)}>Debug</Link>
+      This item is deleted <Link href={createDebugUrl(url)}>Debug</Link>
       <FrameContainer
-        pathname="/buynothing/item/[id]"
-        postUrl="/buynothing/item/[id]/frames"
+        pathname="/buynothing/item/[id]/delete"
+        postUrl="/buynothing/item/[id]/delete/frames"
         state={state}
         previousFrame={previousFrame}
       >
@@ -72,30 +72,11 @@ export default async function Home({
               flexDirection: "row",
             }}
           >
-            <img
-              src={item && item[0]?.image_url}
-              alt="Item"
-              style={{
-                width: "50%"
-              }}
-            />
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-              }}
-            >
-              <p>{item && item[0]?.title}</p> 
-              <p>{item && item[0]?.detail}</p>
-              <p>{item && item[0]?.location}</p>
-            </div>
+            <p>This item is deleted</p> 
           </div>
         </FrameImage>
-        <FrameButton action="link" target={`https://www.google.com/maps/search/?api=1&query=${item && item[0]?.location}`}>
-          See location on Google Map
-        </FrameButton>
-        <FrameButton action="post" target={`${process.env.NEXT_PUBLIC_WEBURL}/buynothing/item/${item && item[0]?.id}/delete`}>
-          Delete
+        <FrameButton action="post" target={`${process.env.NEXT_PUBLIC_WEBURL}/frames`}>
+          Home
         </FrameButton>
       </FrameContainer>
     </div>
