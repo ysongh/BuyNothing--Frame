@@ -58,7 +58,7 @@ export default async function Home({
   // then, when done, return next frame
   return (
     <div>
-      Item: {item && item[0].title} <Link href={createDebugUrl(url)}>Debug</Link>
+      Item: {item && item[0]?.title} <Link href={createDebugUrl(url)}>Debug</Link>
       <FrameContainer
         pathname="/buynothing/item/[id]"
         postUrl="/buynothing/item/[id]/frames"
@@ -73,7 +73,7 @@ export default async function Home({
             }}
           >
             <img
-              src={item && item[0].image_url}
+              src={item && item[0]?.image_url}
               alt="Item"
               style={{
                 width: "50%"
@@ -85,13 +85,13 @@ export default async function Home({
                 flexDirection: "column",
               }}
             >
-              <p>{item && item[0].title}</p> 
-              <p>{item && item[0].detail}</p>
-              <p>{item && item[0].location}</p>
+              <p>{item && item[0]?.title}</p> 
+              <p>{item && item[0]?.detail}</p>
+              <p>{item && item[0]?.location}</p>
             </div>
           </div>
         </FrameImage>
-        <FrameButton action="link" target={`https://www.google.com/maps/search/?api=1&query=${item && item[0].location}`}>
+        <FrameButton action="link" target={`https://www.google.com/maps/search/?api=1&query=${item && item[0]?.location}`}>
           See location on Google Map
         </FrameButton>
       </FrameContainer>
