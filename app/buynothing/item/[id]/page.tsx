@@ -76,7 +76,7 @@ export default async function Home({
               src={item && item[0]?.image_url}
               alt="Item"
               style={{
-                width: "50%"
+                width: "300px",
               }}
             />
             <div
