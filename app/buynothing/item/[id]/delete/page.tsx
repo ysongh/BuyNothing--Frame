@@ -1,6 +1,7 @@
 import {
   FrameButton,
   FrameContainer,
+  FrameInput,
   FrameImage,
   FrameReducer,
   NextServerPageProps,
@@ -11,7 +12,7 @@ import {
 import Link from "next/link";
 import { currentURL } from "../../../../utils";
 import { DEFAULT_DEBUGGER_HUB_URL, createDebugUrl } from "../../../../debug";
-import { getItemByID } from "../../../../../utils/supabase";
+import { getItemByID, deleteItemByID } from "../../../../../utils/supabase";
 
 type State = {
   
@@ -52,8 +53,10 @@ export default async function Home({
   // example: load the users credentials & check they have an NFT
   console.log("info: state is:", state);
 
-  // @ts-ignore
-  const item = await getItemByID(params.id);
+  if (frameMessage?.inputText === "yes") {
+    // @ts-ignore
+    await deleteItemByID(params.id);
+  }
 
   // then, when done, return next frame
   return (
@@ -72,9 +75,16 @@ export default async function Home({
               flexDirection: "row",
             }}
           >
-            <p>This item is deleted</p> 
+            {frameMessage?.inputText === "yes"
+              ? <p>This item#{params?.id} is deleted</p>
+              : <p>Are you sure to delete item#{params?.id}?</p>
+          }
           </div>
         </FrameImage>
+        <FrameInput text="Type 'yes' to delete" />
+        <FrameButton action="post">
+          Delete
+        </FrameButton>
         <FrameButton action="post" target={`${process.env.NEXT_PUBLIC_WEBURL}/frames`}>
           Home
         </FrameButton>
