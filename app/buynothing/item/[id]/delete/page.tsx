@@ -53,10 +53,7 @@ export default async function Home({
   // example: load the users credentials & check they have an NFT
   console.log("info: state is:", state);
   
-  if (frameMessage?.inputText === "yes") {
-    // @ts-ignore
-    await deleteItemByID(params.id);
-  }
+  await deleteItemByID(params.id);
 
   // then, when done, return next frame
   return (
