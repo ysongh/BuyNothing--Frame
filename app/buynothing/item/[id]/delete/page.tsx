@@ -52,7 +52,7 @@ export default async function Home({
   // Here: do a server side side effect either sync or async (using await), such as minting an NFT if you want.
   // example: load the users credentials & check they have an NFT
   console.log("info: state is:", state);
-
+  
   if (frameMessage?.inputText === "yes") {
     // @ts-ignore
     await deleteItemByID(params.id);
@@ -75,16 +75,9 @@ export default async function Home({
               flexDirection: "row",
             }}
           >
-            {frameMessage?.inputText === "yes"
-              ? <p>This item#{params?.id} is deleted</p>
-              : <p>Are you sure to delete item#{params?.id}?</p>
-          }
+            <p>This item#{params?.id} is deleted</p>
           </div>
         </FrameImage>
-        <FrameInput text="Type 'yes' to delete" />
-        <FrameButton action="post">
-          Delete
-        </FrameButton>
         <FrameButton action="post" target={`${process.env.NEXT_PUBLIC_WEBURL}/frames`}>
           Home
         </FrameButton>
