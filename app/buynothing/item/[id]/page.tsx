@@ -66,25 +66,13 @@ export default async function Home({
         previousFrame={previousFrame}
       >
         <FrameImage>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-            }}
-          >
+          <div tw="flex">
             <img
               src={item && item[0]?.image_url}
               alt="Item"
-              style={{
-                width: "300px",
-              }}
+              tw="w-[300px]"
             />
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-              }}
-            >
+            <div tw="flex flex-col">
               <p>{item && item[0]?.title}</p> 
               <p>{item && item[0]?.detail}</p>
               <p>{item && item[0]?.location}</p>
