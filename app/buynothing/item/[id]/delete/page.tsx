@@ -12,7 +12,7 @@ import {
 import Link from "next/link";
 import { currentURL } from "../../../../utils";
 import { DEFAULT_DEBUGGER_HUB_URL, createDebugUrl } from "../../../../debug";
-import { getItemByID, deleteItemByID } from "../../../../../utils/supabase";
+import { deleteItemByID } from "../../../../../utils/supabase";
 
 type State = {
   

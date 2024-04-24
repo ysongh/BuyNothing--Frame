@@ -1,6 +1,5 @@
 /* eslint-disable react/jsx-key */
 import { createFrames, Button } from "frames.js/next";
-import { redirect } from "frames.js/core";
 
 import { getAllItem } from "../../../../utils/supabase";
 
