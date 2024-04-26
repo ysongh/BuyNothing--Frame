@@ -36,7 +36,13 @@ export default async function Home() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {items?.map(item => (
             <div className="max-w-md mx-auto bg-white shadow-md rounded-md overflow-hidden mb-4">
-              <img src={item.image_url} alt="Item" className="w-full h-48 object-cover object-center" />
+              <Link href={`/buynothing/item/${item.id}`}>
+                <img
+                  src={item.image_url}
+                  alt="Item"
+                  className="w-full h-48 object-cover object-center"
+                />
+              </Link>
               <div className="p-4">
                 <h2 className="text-xl font-semibold mb-2">{item.title}</h2>
                 <p className="text-gray-600">{item.location}</p>
