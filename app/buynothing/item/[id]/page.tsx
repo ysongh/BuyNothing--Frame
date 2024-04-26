@@ -59,6 +59,24 @@ export default async function Home({
   return (
     <div>
       Item: {item && item[0]?.title} <Link href={createDebugUrl(url)}>Debug</Link>
+      <div className="max-w-md mx-auto bg-white shadow-md rounded-md overflow-hidden mb-4">
+        <img
+          src={item[0]?.image_url}
+          alt="Item"
+          className="w-full h-48 object-cover object-center"
+        />
+        <div className="p-4">
+          <h2 className="text-xl font-semibold mb-2">{item[0]?.title}</h2>
+          <p className="mb-3">
+            {item[0]?.detail}
+          </p>
+          <p className="text-gray-600 mb-3">{item[0]?.location}</p>
+          <Link href="/buynothing/items" className="underline">
+            Back
+          </Link>
+        </div>
+      </div>
+     
       <FrameContainer
         pathname="/buynothing/item/[id]"
         postUrl="/buynothing/item/[id]/frames"
